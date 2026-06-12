@@ -9,9 +9,10 @@ sudo yum upgrade -y
 #sudo yum install jenkins java-1.8.0-openjdk-devel -y
 #sudo amazon-linux-extras install java-openjdk11
 #Java 17 installed and old Java versions commented out
-sudo dnf install java-17-amazon-corretto-devel -y
+sudo dnf install java-21-amazon-corretto-devel -y
 sudo yum install git -y
 sudo yum install nodejs npm -y
+sudo yum install -y maven
 sudo wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
 sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
 sudo yum install -y apache-maven
@@ -46,3 +47,7 @@ sudo systemctl start docker
 sudo systemctl enable docker
 sudo systemctl status docker
 sudo yum install jq -y
+sudo yum update -y
+wget https://github.com/zaproxy/zaproxy/releases/download/v2.16.1/ZAP_2_16_1_unix.sh
+chmod +x ZAP_2_16_1_unix.sh
+sudo ./ZAP_2_16_1_unix.sh
